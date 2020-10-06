@@ -7,6 +7,7 @@ $pdo = new PDO('sqlite:' . $databasePath);
 
 $statement = $pdo->query('SELECT * FROM students');
 
+// O método fetch retorna uma única linha de cada vez, poupando memória
 while ($studentData = $statement->fetch(PDO::FETCH_ASSOC)) {
   $student = new \Alura\Pdo\Domain\Model\Student(
     $studentData['id'],
